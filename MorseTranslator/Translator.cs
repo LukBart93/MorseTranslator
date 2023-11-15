@@ -50,7 +50,16 @@ namespace MorseTranslator
             this.Text = "Morse Translator";
             this.ResumeLayout(false);
             this.PerformLayout();
+            //
+            // Back
+            //
+            Button backButton = new Button();
+            backButton.Text = "Wróæ";
+            backButton.Click += BackButton_Click;
 
+            backButton.Location = new Point(10, 10);
+            backButton.Size = new Size(75, 25);
+            Controls.Add(backButton);
         }
 
         private void PolishTextBox_TextChanged(object sender, EventArgs e)
@@ -79,6 +88,15 @@ namespace MorseTranslator
                 }
             }
             return morseCode.Trim();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            Menu secondForm = new Menu();
+            this.Hide();
+            secondForm.ShowDialog();
+            this.Close();
+
         }
 
         [STAThread]
